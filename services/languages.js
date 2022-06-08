@@ -10,7 +10,7 @@ async function getMultiple(page = 1){
         `
     );
     const data = helper.emptyOrRows(rows);
-    const meta = (page);
+    const meta = {page};
 
     return {
         data,
@@ -31,7 +31,7 @@ async function getUsersM(page = 1){
         `
     );
     const data = helper.emptyOrRows(rows);
-    const meta = (page);
+    const meta = {page};
 
     return {
         data,
