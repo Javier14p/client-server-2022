@@ -18,11 +18,6 @@ async function getMultiple(page = 1){
     }
 }
 
-// module.exports = {
-//     getMultiple
-// };
-
-
 async function getUsersM(page = 1){
     const offset = helper.getOffset(page, config.listPerPage);
     const rows = await db.query(

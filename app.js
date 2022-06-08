@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// var permissionsRouter = require('./routes/permissions');
+var permissionsRouter = require('./routes/permissions');
 var languagesRouter = require('./routes/languages');
 //I added this rout
 // var userslistRouter = require('./routes/userlist');
@@ -28,7 +28,7 @@ app.use('/css', express.static(__dirname + "/node_modules/bootstrap/dist/css"));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/permissions', permissionsRouter);
+app.use('/permissions', permissionsRouter);
 app.use('/languages', languagesRouter);
 // app.use('/users/userlist', userslistRouter);
 
