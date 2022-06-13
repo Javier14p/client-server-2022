@@ -6,22 +6,22 @@ var router = express.Router();
 const languages = require('../services/languages');
 
 /* GET leguages listing. */
-router.post('/', async function(req, res, next) {
-  // try{
-  //   res.json(await lenguages.getMultiple(req.query.page));
-  // }
-  // catch(err){
-  //   console.error('Error' + err.message);
-  //   next(err);
-  // }
-
+router.get('/', async function(req, res, next) {
   try{
-    res.json(await languages.create(req.body));
+    res.json(await languages.getMultiple(req.query.page));
   }
-  catch(error){
-    console.log('Error while creating a language', error.message);
-    next(error);
+  catch(err){
+    console.error('Error' + err.message);
+    next(err);
   }
+
+//   try{
+//     res.json(await languages.create(req.body));
+//   }
+//   catch(error){
+//     console.log('Error while creating a language', error.message);
+//     next(error);
+//   }
 });
 
 
