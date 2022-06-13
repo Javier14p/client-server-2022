@@ -1,17 +1,26 @@
 const { request } = require('express');
 var express = require('express');
+const { db } = require('../config');
 var router = express.Router();
 
-const lenguages = require('../services/languages');
+const languages = require('../services/languages');
 
 /* GET leguages listing. */
-router.get('/', async function(req, res, next) {
+router.post('/', async function(req, res, next) {
+  // try{
+  //   res.json(await lenguages.getMultiple(req.query.page));
+  // }
+  // catch(err){
+  //   console.error('Error' + err.message);
+  //   next(err);
+  // }
+
   try{
-    res.json(await lenguages.getMultiple(req.query.page));
+    res.json(await languages.create(req.body));
   }
-  catch(err){
-    console.error('Error' + err.message);
-    next(err);
+  catch(error){
+    console.log('Error while creating a language', error.message);
+    next(error);
   }
 });
 
