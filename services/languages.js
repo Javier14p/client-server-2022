@@ -18,6 +18,7 @@ async function getMultiple(page = 1){
     }
 }
 
+//THIS IS FOR GET
 async function getUsersM(page = 1){
     const offset = helper.getOffset(page, config.listPerPage);
     const rows = await db.query(
@@ -34,6 +35,7 @@ async function getUsersM(page = 1){
     }
 }
 
+//THIS IS FOR POST
 async function create(language){
     console.log(`INSERT INTO languages
     (name, description, year)
@@ -54,10 +56,50 @@ async function create(language){
   
     return {message}
   }
+
+//THIS IS FOR PUT
+  async function update(id,language){
+    const result = await db.query(
+        `UPDATE languages 
+        SET 
+        name = '${language.name}', 
+        description = '${language.description}', 
+        year = ${language.year}
+        WHERE id= ${id}
+        `
+    );
+ 
+    let message = "Error in updateing a programming language";
+    if (result.affectedRows){
+        message = "A language has been updated!";
+    }
+ 
+    return {message}
+ }
+
+ //THIS IS FOR DELETE
+ async function remove(id){
+    const result = await db.query(
+        `DELETE FROM languages 
+        WHERE id= ${id}
+        `
+    );
+ 
+    let message = "Error in DELETING a programming language";
+    if (result.affectedRows){
+        message = "A language has been deleted!";
+    }
+ 
+    return {message}
+ }
+
+
   
 
 module.exports = {
     getUsersM,
     getMultiple,
-    create
+    create,
+    update,
+    remove
 };
