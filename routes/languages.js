@@ -8,6 +8,7 @@ const languages = require('../services/languages');
 
 
 /* GET leguages listing. */
+//SHOW IN THE PAGE NOT IN POSTMAN
 router.get('/', async function(req, res, next){
   const users = require('../services/languages');
   try{
