@@ -2,7 +2,7 @@ const db = require('./db');
 const helper = require('../helper');
 const config = require('../config');
 
-
+//JAVIER EULOGIO PONCE BARRAZA
 //THIS IS TO SHOW THE RECORDS IN THE PAGE, NOT IN POSTMAN
 async function getMultiple(page = 1){
     const offset = helper.getOffset(page, config.listPerPage);
